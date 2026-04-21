@@ -1,0 +1,12 @@
+.venv
+.git
+.github
+examples
+Makefile
+README.md
+LICENSE
+*.pt
+*.onnx
+__pycache__
+.mypy_cache
+.ruff_cache

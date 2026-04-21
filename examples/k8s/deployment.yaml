@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poormanyolocam
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: poormanyolocam
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: poormanyolocam
+    spec:
+      containers:
+        - name: poormanyolocam
+          image: ghcr.io/chrisns/poormanyolocam:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+          env:
+            - name: UPSTREAM_URL
+              value: http://change-me.example.svc/snapshot.jpg
+            - name: WORLD_PROMPTS
+              value: "wheelie bin,car,person"
+            - name: CONF_THRESHOLD
+              value: "0.4"
+          resources:
+            requests:
+              memory: 512Mi
+              cpu: 200m
+            limits:
+              memory: 1Gi
+              cpu: "2"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http

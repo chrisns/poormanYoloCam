@@ -1,4 +1,4 @@
-FROM python:3.12-slim@sha256:d764629ce0ddd8c71fd371e9901efb324a95789d2315a47db7e4d27e78f1b0e9
+FROM python:3.12-slim@sha256:ba7e2064c4e1ab67d2af2cd761183b4af961cbc21f47020ef785b738472b01ac
 
 ARG YOLO_MODEL=yolov8s-worldv2.pt
 

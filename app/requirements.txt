@@ -2,7 +2,7 @@ fastapi==0.141.1
 uvicorn[standard]==0.52.4
 httpx==0.28.1
 pillow==12.3.0
-ultralytics==8.4.140
+ultralytics==8.4.141
 torch==2.14.0
 torchvision==0.29.0
 clip @ git+https://github.com/openai/CLIP.git

@@ -4,5 +4,5 @@ httpx==0.28.1
 pillow==13.0.0
 ultralytics==8.4.191
 torch==2.14.1
-torchvision==0.29.1
+torchvision==0.29.2
 clip @ git+https://github.com/openai/CLIP.git
